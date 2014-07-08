@@ -8,6 +8,7 @@
 
 #import "ToDoListTableViewController.h"
 #import "ToDoItem.h"
+#import "AddToDoItemViewController.h"
 
 @interface ToDoListTableViewController ()
 
@@ -31,7 +32,12 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue
 {
-    
+    AddToDoItemViewController *source = [segue sourceViewController];
+    ToDoItem *item = source.toDoItem;
+    if (item != nil) {
+        [self.toDoItems addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -144,7 +150,7 @@
 
 #pragma mark - Table view delegate
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     ToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
