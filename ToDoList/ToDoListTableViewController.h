@@ -12,6 +12,4 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
-@property NSMutableArray *toDoItems;
-
 @end
