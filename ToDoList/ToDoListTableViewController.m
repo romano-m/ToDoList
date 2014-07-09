@@ -20,7 +20,7 @@
 
 - (void) loadInitialData {
     ToDoItem *item1 = [[ToDoItem alloc] init];
-    item1.itemName = @"Buy milk";
+    item1.itemName = @"Set up Parse";
     [self.toDoItems addObject:item1];
     ToDoItem *item2 = [[ToDoItem alloc] init];
     item2.itemName = @"Buy eggs";
